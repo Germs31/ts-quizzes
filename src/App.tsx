@@ -19,13 +19,23 @@ type QuestionState = {
   answers: string[]
 }
 
+type AnswerObject = {
+  question: string; 
+  answer: string;
+  correct: boolean;
+  correctAnswer: string;
+}
+
 // Total Questions
 const TOTAL_QUESTIONS = 10
 
 const App = () => {
   const [loader, setLoader] = useState(false)
-  const [data, setData] = useState({})
-
+  const [gameOver, setGameOver] = useState(false)
+  const [score, setScore] = useState(0)
+  const [number, setNumber] = useState(0)
+  const [questions, setQuestions] = useState<QuestionState[]>([])
+  const [userAnswer, setUsetAnswers] = useState<AnswerObject[]>([])
   return (
     <div className="quiz-container">
       <h1>Quiz App</h1>
